@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waffle Kart - Giriş</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="login-page">
+    <main class="login-card">
+        <div class="brand">
+            <span class="brand-icon">🧇</span>
+            <h1>Waffle Kart</h1>
+            <p>Kasiyer girişi</p>
+        </div>
+        <form id="loginForm">
+            <label for="kullaniciAdi">Kullanıcı adı</label>
+            <input id="kullaniciAdi" type="text" autocomplete="username" required>
+
+            <label for="sifre">Şifre</label>
+            <input id="sifre" type="password" autocomplete="current-password" required>
+
+            <button type="submit" class="btn btn-primary">Giriş yap</button>
+            <p id="loginError" class="error-msg" hidden></p>
+        </form>
+        <p class="hint">Varsayılan: admin / admin123</p>
+    </main>
+    <script src="/js/api.js"></script>
+    <script src="/js/login.js"></script>
+</body>
+</html>

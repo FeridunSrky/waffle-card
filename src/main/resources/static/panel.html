@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waffle Kart - Kasiyer Paneli</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-left">
+            <span class="brand-icon">🧇</span>
+            <strong>Waffle Kart</strong>
+        </div>
+        <div class="topbar-right">
+            <span id="kasiyerAdi"></span>
+            <button id="logoutBtn" class="btn btn-ghost">Çıkış</button>
+        </div>
+    </header>
+
+    <main class="panel">
+        <section class="card search-section">
+            <h2>Müşteri kartı</h2>
+            <div class="search-row">
+                <label for="kullaniciId">Müşteri ID</label>
+                <input id="kullaniciId" type="number" min="1" placeholder="Örn: 1000">
+                <button id="kartGetirBtn" class="btn btn-primary">Kart getir</button>
+            </div>
+            <p id="panelError" class="error-msg" hidden></p>
+        </section>
+
+        <section id="kartSection" class="card kart-section" hidden>
+            <div class="musteri-info">
+                <h2 id="musteriAdSoyad">—</h2>
+                <p>Müşteri ID: <strong id="musteriIdGoster">—</strong></p>
+                <p>Doluluk: <strong id="dolulukGoster">0 / 6</strong></p>
+            </div>
+
+            <div id="kutuGrid" class="kutu-grid">
+                <div class="kutu" data-index="0">
+                    <button type="button" class="kutu-sil" aria-label="Kutuyu temizle">×</button>
+                    <span class="kutu-no">1</span>
+                    <span class="kutu-tur"></span>
+                </div>
+                <div class="kutu" data-index="1">
+                    <button type="button" class="kutu-sil" aria-label="Kutuyu temizle">×</button>
+                    <span class="kutu-no">2</span>
+                    <span class="kutu-tur"></span>
+                </div>
+                <div class="kutu" data-index="2">
+                    <button type="button" class="kutu-sil" aria-label="Kutuyu temizle">×</button>
+                    <span class="kutu-no">3</span>
+                    <span class="kutu-tur"></span>
+                </div>
+                <div class="kutu" data-index="3">
+                    <button type="button" class="kutu-sil" aria-label="Kutuyu temizle">×</button>
+                    <span class="kutu-no">4</span>
+                    <span class="kutu-tur"></span>
+                </div>
+                <div class="kutu" data-index="4">
+                    <button type="button" class="kutu-sil" aria-label="Kutuyu temizle">×</button>
+                    <span class="kutu-no">5</span>
+                    <span class="kutu-tur"></span>
+                </div>
+                <div class="kutu" data-index="5">
+                    <button type="button" class="kutu-sil" aria-label="Kutuyu temizle">×</button>
+                    <span class="kutu-no">6</span>
+                    <span class="kutu-tur"></span>
+                </div>
+            </div>
+
+            <div id="bedavaBanner" class="bedava-banner" hidden>
+                🎉 6 kutu doldu — 7. waffle bedava!
+            </div>
+
+            <div class="action-row">
+                <button id="bardakBtn" class="btn btn-waffle">+ Bardak Waffle</button>
+                <button id="kaseBtn" class="btn btn-waffle">+ Kase Waffle</button>
+                <button id="temizleBtn" class="btn btn-danger" hidden>Kutuları Temizle</button>
+                <button id="bedavaBtn" class="btn btn-bedava" hidden>7. Bedava Ver</button>
+            </div>
+        </section>
+
+        <section class="card register-section">
+            <h2>Yeni müşteri kaydı</h2>
+            <form id="kayitForm" class="register-form">
+                <input id="ad" type="text" placeholder="Ad" required>
+                <input id="soyad" type="text" placeholder="Soyad" required>
+                <input id="telefon" type="tel" placeholder="Telefon (5xxxxxxxxx)" pattern="[0-9]{10}" required>
+                <button type="submit" class="btn btn-secondary">Kaydet</button>
+            </form>
+            <p id="kayitMesaj" class="success-msg" hidden></p>
+        </section>
+    </main>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/panel.js"></script>
+</body>
+</html>
