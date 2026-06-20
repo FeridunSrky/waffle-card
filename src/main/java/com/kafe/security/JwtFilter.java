@@ -28,6 +28,12 @@ public class JwtFilter extends OncePerRequestFilter {
                                     FilterChain filterChain)
             throws ServletException, IOException {
 
+    	String path = request.getServletPath();
+    	if (path.equals("/api/auth/login") || path.equals("/login")) { 
+            // NOT: Yukarıdaki adresi kendi projenin login URL'sine göre düzeltmelisin.
+            filterChain.doFilter(request, response);
+            return; // İşlemi burada kes, aşağıdaki token kodlarına geçme
+        }
         String authHeader = request.getHeader("Authorization");
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {

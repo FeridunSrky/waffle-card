@@ -4,6 +4,10 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     const errorEl = document.getElementById("loginError");
     errorEl.hidden = true;
 
+	API.clearSession();
+	
+	//localStorage.removeItem("token");
+	
     const kullaniciAdi = document.getElementById("kullaniciAdi").value.trim();
     const sifre = document.getElementById("sifre").value;
 
